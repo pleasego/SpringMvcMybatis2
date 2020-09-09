@@ -10,22 +10,22 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-@Log4j
-//@Slf4j
+//@Log4j
+@Slf4j
 class Notice {
 
     @Before("execution(* com.xtkj.service.impl.*.*(..))")
     public void before() {
         System.out.println("--------------><---------------");
-        log.info(".................please away.............................");
-        log.info("---------->前置通知<--------------");
+        log.info(".................please away slf4j.............................");
+        log.info("---------->前置通知 slf4j<--------------");
     }
 
     @After("execution(* com.xtkj.service.impl.*.*(..))")
     public void after() {
         System.out.println("--------------><---------------");
-        log.info(".................please like.............................");
-        log.info("----------->后置通知<--------------");
+        log.info(".................please like slf4j.............................");
+        log.info("----------->后置通知 slf4j<--------------");
     }
 
     @AfterThrowing(pointcut = "execution(* com.xtkj.service.impl.*.*(..))",throwing = "e")
