@@ -35,29 +35,13 @@ public class UserController {
 
     @RequestMapping("/addUser")
     @ResponseBody
-    public GsonResult addUser(HttpServletRequest request){
-        String userName = request.getParameter("userName");
-        String loginId = request.getParameter("loginId");
-        String loginPwd = request.getParameter("loginPwd");
-        User user = (User) TestTool.INSTALL.getBeanFactory("user");
-        user.setUserName(userName);
-        user.setLoginId(loginId);
-        user.setLoginPwd(loginPwd);
+    public GsonResult addUser(User user){
         return userService.addUser(user);
     }
 
     @RequestMapping("/updUser")
     @ResponseBody
-    public GsonResult updUser(HttpServletRequest request){
-        String userId = request.getParameter("userId");
-        String userName = request.getParameter("userName");
-        String loginId = request.getParameter("loginId");
-        String loginPwd = request.getParameter("loginPwd");
-        User user = (User) TestTool.INSTALL.getBeanFactory("user");
-        user.setUserId(Integer.parseInt(userId));
-        user.setUserName(userName);
-        user.setLoginId(loginId);
-        user.setLoginPwd(loginPwd);
+    public GsonResult updUser(User user){
         return userService.updateUser(user);
     }
 

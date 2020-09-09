@@ -52,11 +52,11 @@ public class UserServiceImpl implements IUserService {
     public GsonResult addUser(User user) {
         int i = userMapper.insertSelective(user);
         if(i>0){
-            gsonResult.setMsg("修改成功");
+            gsonResult.setMsg("添加成功");
             gsonResult.setStateCode(200);
         }else{
             gsonResult.setStateCode(500);
-            gsonResult.setMsg("修改失败");
+            gsonResult.setMsg("添加失败");
         }
         return gsonResult;
     }

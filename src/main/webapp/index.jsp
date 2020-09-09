@@ -110,9 +110,7 @@
             }
         }
     }
-    $("#tab").bootstrapTable("refresh",{
-        silent:true //静态刷新表格
-    })
+
     function delUser(){
         $.ajax({
             url:"delUser",
@@ -125,8 +123,7 @@
                 }else{
                     $("#del").html(data.msg)
                 }
-                // 删除成功后刷新页面
-                window.location.reload();
+                // window.location.reload();
             },
             error:function (data){
                 alert("执行失败")
@@ -146,6 +143,7 @@
                 }else{
                     $("#add").html(data.msg);
                 }
+                // window.location.reload();
             },
             error:function (data){
                 alert("执行失败")
@@ -165,12 +163,16 @@
                 }else{
                     $("#upd").html(data.msg);
                 }
+                // window.location.reload();
             },
             error:function (data){
                 alert("执行失败")
             }
         })
     }
+    $("#tab").bootstrapTable("refresh",{
+        silent:true //静态刷新表格
+    })
 </script>
 </body>
 </html>
